@@ -1,7 +1,6 @@
       /* GLOBAL STYLES */
-      html, body {
-        margin: 0;
-        padding: 0;
+      body {
+        font-family: Helvetica, sans-serif;
       }
 
       h1 {
@@ -11,6 +10,25 @@
 
       a {
         color: #f00;
+      }
+
+      /* HEADER STYLES */
+      .header-nav {
+        float: right;
+        padding: 5.5vh 60px 0 0;
+      }
+
+      .header-nav > li {
+        display: inline-block;
+        margin-left: 1em;
+      }
+
+      .header-nav a {
+        color: #000;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
       }
 
       /* HERO STYLES */
@@ -102,6 +120,11 @@
 
       .bio-box > a {
         color: #c68bf9;
+      }
+
+      .bio-box .social-link {
+        display: block;
+        margin: 2em 0 1em;
       }
 
       /* TESTS */
