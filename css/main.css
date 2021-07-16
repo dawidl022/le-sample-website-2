@@ -229,3 +229,6 @@ h2 ~ p {
 .footer-nav a {
   color: #ccc;
 }
+.footer-socials {
+  margin-top: 2em;
+}
