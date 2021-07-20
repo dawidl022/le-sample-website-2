@@ -1,11 +1,12 @@
+{% include root.html %}
 <header class="header">
   <nav>
     <ul class="header-nav nav-links">
       {% include nav-links.html %}
     </ul>
   </nav>
-  <a href=".." class="footer-nav header-logo">
-    <img src="../images/logo.png" alt="Learn Enough">
+  <a href="{{root}}" class="footer-nav header-logo">
+    <img src="{{root}}/images/logo.png" alt="Learn Enough">
   </a>
   {{ include.content }}
 </header>
