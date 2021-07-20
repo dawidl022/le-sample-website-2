@@ -481,7 +481,7 @@ body a.social-link {
   margin-right: .5em;
 }
 
-.post-header img {
+.post-header img, .post-author img {
   border-radius: 99px;
   display: inline-block;
   height: 3em;
@@ -493,6 +493,16 @@ body a.social-link {
   background-size: cover;
   height: 6em;
   margin-bottom: 1.5em;
+}
+
+.post-author {
+  color: #999;
+  font-size: 0.8em;
+}
+
+.post-author img {
+  height: 2em;
+  margin-left: .4em;
 }
 
 /* TESTS */
