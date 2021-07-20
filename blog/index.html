@@ -32,9 +32,11 @@ layout: default
               <span>{{post.date | date: '%d %B %Y' }}</span>
             </div>
           </header>
-          <div class="posts-image" 
-            style="background-image:url({{post.postHero}});">
-          </div>
+          {% if post.postHero %}
+            <div class="posts-image" 
+              style="background-image:url({{post.postHero}});">
+            </div>
+          {% endif %}
           <p>
             {{post.excerpt}}
           </p>
