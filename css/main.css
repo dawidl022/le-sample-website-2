@@ -4,10 +4,6 @@ html {
   padding: 0 30px;
 }
 
-body {
-  font-family: Helvetica, sans-serif;
-}
-
 h1 {
   margin-top: 0;
   font-size: 7vw;
@@ -19,6 +15,19 @@ p {
 
 a {
   color: #f00;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.content-container {
+  flex: 1 1 0;
+  padding-top: 10vh;
+  width: 100%;
 }
 
 /* HEADER STYLES */
@@ -113,8 +122,7 @@ a {
   background-color: #c7dbfc;
   background-size: cover;
   box-sizing: border-box;
-  padding-top: 11vh;
-  height: 100vh;
+  height: 90vh;
 }
 
 .full-hero:hover {
@@ -294,7 +302,7 @@ h2 ~ p {
 
 .bio-box .social-link {
   display: block;
-  margin: 2em auto 1em;
+  margin: 3em auto 1em;
 }
 
 /* TESTS */
