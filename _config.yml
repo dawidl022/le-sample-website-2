@@ -1,0 +1,11 @@
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      root: "."
+  -
+    scope:
+      path: "*/"
+    values:
+      root: ".."
