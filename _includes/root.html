@@ -1,14 +1,21 @@
-{% assign root = '' %}
 {% assign depth = page.url | split: '/' | size %}
-{% if depth <= 1 %}
-{% assign root = '.' %}
-{% elsif depth == 2 %}
-{% assign root = '..' %}
-{% elsif depth == 3 %}
-{% assign root = '../..'%}
-{% elsif depth == 4 %}
-{% assign root = '../../..' %}
-{% elsif depth == 5 %}
-{% assign root = '../../../..'%}
+{% assign last_char = page.url | slice: -1 %}
+{% comment %}
+  Normally would use minus: 1 but that seems to break the "index.html" of a 
+  sub-folder
+  TODO check if this works under non-root GitHub page
+{% endcomment %}
+{% if last_char != '/' %}
+  {% assign depth = depth | minus: 1 %}
 {% endif %}
+
+{% if depth <= 1 %}
+  {% assign root = '.' %}
+{% elsif depth >= 2 %}
+  {% assign root = '..' %}
+{% endif %}
+
+{% for i in (3..depth)%}
+  {% assign root = root | append: '/..' %}
+{% endfor %}
 
