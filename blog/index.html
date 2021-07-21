@@ -42,7 +42,19 @@ layout: default
               style="background-image:url({{root}}{{post.postHero}});">
             </div>
           {% endif %}
-          {{post.excerpt}}
+          {%- comment -%}
+            Simplified version of root algorithm to get the root location from
+            the post, only to replace it with the current page root location.
+            This is needed for the edge case that a relative URL appears in the
+            post excerpt. 
+          {%- endcomment -%}
+          {%- assign post_root = ".." -%}
+          {%- assign depth = post.url | split: '/' | size | minus: 1 -%}
+          {%- for i in (3..depth)-%}
+            {%- assign post_root = post_root | append: '/..' -%}
+          {%- endfor -%}
+
+          {{post.excerpt | replace: post_root, root}}
         </div>
       {% endfor %}
     </div>
