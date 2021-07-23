@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{%- include scripts/root.html -%}
 <div class="home">
   <div class="full-hero hero-home">
     <div class="hero-content">
@@ -43,6 +44,45 @@ layout: default
     </div>
   </div>
   
+  <!-- consider changing tag to section -->
+  <div class="home-section">
+    <h4>Most recent post</h4>
+    <div class="blog-posts">
+      <header class="post-header">
+        <h2><a href="{{ root }}{{ site.posts.first.url }}">
+          {{ site.posts.first.title }}  
+        </a></h2>
+        <div class="post-byline">
+          <img src="{{ site.posts.first.gravatar }}"
+            alt="Gravatar of {{ site.posts.first.author }}">
+          <a href="{{ site.posts.first.authorTwitter }}" class="social-link">
+            Tw
+          </a>
+          by: {{ site.posts.first.author }}
+          <span> - {{ site.posts.first.date | date: '%d %B %Y'}}</span>
+        </div>
+      </header>
+      {%- if site.posts.first.postHero -%}
+        <div class="posts-image"
+          style="background-image: url({{root}}{{site.posts.first.postHero}});">
+        </div>
+      {%- endif -%}
+      {%- comment -%}
+        Simplified version of root algorithm to get the root location from
+        the post, only to replace it with the current page root location.
+        This is needed for the edge case that a relative URL appears in the
+        post excerpt. 
+      {%- endcomment -%}
+      {%- assign post_root = ".." -%}
+      {%- assign depth = site.posts.first.url | split: '/' | size | minus: 1 -%}
+      {%- for i in (3..depth)-%}
+        {%- assign post_root = post_root | append: '/..' -%}
+      {%- endfor -%}
+      
+      {{ site.posts.first.excerpt | replace: post_root, root }}
+    </div>
+  </div>
+
   <div class="home-section">
     <h2>THE FOUNDERS</h2>
     <p>

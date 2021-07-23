@@ -15,7 +15,7 @@ p {
 }
 
 a {
-  color: #f00;
+  color: #6597b4;
 }
 
 body {
@@ -248,6 +248,28 @@ h2 ~ p {
   padding: 0 3vw;
 }
 
+.home-callout a {
+  color: #f00;
+}
+
+.home-section h2 {
+  margin: 1.5rem 0;
+}
+
+.home-section h4 {
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+.home-section .post-header {
+  text-align: center;
+}
+
+.home-section .blog-posts {
+  margin: auto;
+  width: 75%;
+}
+
 /* SOCIAL STYLES */
 .social-list {
   list-style: none;
@@ -410,9 +432,6 @@ body a.social-link {
   width: 85vw;
 }
 
-.page a {
-  color: #7399b4;
-}
 
 .page h1 {
   font-size: 3em;
