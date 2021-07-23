@@ -524,7 +524,7 @@ body a.social-link {
 
 .post-aside {
   background-color: rgba(0, 0, 0, 0.01);
-  float: right;
+  /* float: right; */
   margin: 0 0 2em 2em;
   padding: 2em;
 }
@@ -550,6 +550,14 @@ body a.social-link {
   background-position: center center;
   background-size: cover;
   height: 40vh;
+}
+
+.post .page {
+  display: flex;
+}
+
+.page-content {
+  text-align: justify;
 }
 
 /* TESTS */
