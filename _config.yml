@@ -1,6 +1,0 @@
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      title: "Test Page: Don't Panic"

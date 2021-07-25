@@ -15,7 +15,9 @@ layout: default
         <h1>{{ page.title }}</h1>
         <div class="post-byline">
           <img src="{{ page.gravatar }}" alt="Gravatar of {{ page.author }}">
-          <a href="{{ page.authorTwitter }}" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="{{ page.authorTwitter }}" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
           by: {{ page.author }}
           <span> - {{ page.date | date: '%d %B %Y' }}</span>
         </div>
