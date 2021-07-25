@@ -417,10 +417,10 @@ body a.social-link {
   font-weight: bold;
   height: 2.5em;
   text-decoration: none;
+  vertical-align: middle;
   width: 2.5em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  position: relative;
 }
 
 .social-link:hover, .social-link:active {
@@ -724,6 +724,14 @@ body a.social-link {
   box-sizing: border-box;
   width: auto;
 } */
+
+.fab {
+  font-size: 1.78rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 @media (max-width: 800px) {
 
