@@ -21,8 +21,13 @@ a {
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Roboto", Helvetica, sans-serif;
+  font-family: "Open Sans", "Roboto", Helvetica, sans-serif;
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', helvetica, sans-serif;
+  font-weight: 100;
 }
 
 h4 {
@@ -30,6 +35,7 @@ h4 {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 
 .content-container {
   flex: 1 1 auto;
@@ -461,6 +467,8 @@ body a.social-link {
 
 .bio-box h3 {
   font-size: 1.5em;
+  font-family: "Roboto", Helvetica, sans-serif;
+  font-weight: 400;
   color: #fff;
   margin: -55px 0 1em;
   text-transform: uppercase;
