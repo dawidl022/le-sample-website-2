@@ -80,11 +80,11 @@ h4 {
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 1em;
 }
-.header-nav a, .drop-trigger {
+.header-nav a, .drop-trigger, .show-mobile-menu {
   cursor: pointer;
   color: #fff;
 }
-.nav-links a, .drop-trigger  {
+.nav-links a, .drop-trigger, .show-mobile-menu  {
   font-size: 0.9rem;
   font-weight: bold;
   text-decoration: none;
@@ -277,7 +277,7 @@ h4 {
 } */
 
 /* cool trick to draw triangle with CSS! */
-.full-hero:after {
+.full-hero::after {
   border: 10px solid;
   border-color: #fff transparent transparent;
   bottom: 2vh;
@@ -702,6 +702,12 @@ body a.social-link {
   text-align: justify;
 }
 
+/* MOBILE MENU */
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
+}
+
 /* TESTS */
 
 /* .test-box {
@@ -738,10 +744,6 @@ body a.social-link {
 
   .header-nav > li ~ li {
     padding-left: 0.25em;
-  }
-
-  .nav-links a {
-    font-size: min(3.25vw, 16px);
   }
 
   .header-logo {
@@ -801,6 +803,72 @@ body a.social-link {
   }
   .gallery .gallery-info {
     flex: 1;
+  }
+
+  /* MOBILE MENU */
+  .show-mobile-menu {
+    display: block;
+    float: right;
+    margin-top: 1.5vh;
+    padding: 1.5em;
+    position: relative;
+  }
+
+  .header-nav {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: all .5s ease-in-out;
+    background-color: #444;
+    box-sizing: border-box;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 10vh;
+    transition: all .5s ease-in-out;
+    width: 100%;
+    z-index: 9;
+    flex-direction: column;
+  }
+
+  .header-nav li {
+    margin-top: 1em;
+  }
+
+  .header-nav li + li {
+    border: 0;
+    padding: 0;
+  }
+
+  .mobile-menu-check:checked ~ .header-nav {
+    max-height: 200px;
+    /* TODO change this trick to utilise JS script */
+  }
+    .header-nav li:last-child {
+    margin-bottom: 1em;
+  }
+  .header-nav li:first-child a {
+    color: #fff;
+  }
+
+  .mobile-menu-check:checked ~ .show-mobile-menu::after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 1.5em;
+    width: 100%;
+  }
+
+  /* HIDE DROPDOWN IN THE NAV MENU */
+  .header-nav .dropdown:hover .drop-menu,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+  .header-nav .drop-trigger {
+    padding-right: 0;
   }
 }
 
