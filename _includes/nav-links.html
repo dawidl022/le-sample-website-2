@@ -1,5 +1,15 @@
 {%- include scripts/root.html -%}
 <li><a href="{{ root }}">Home</a></li>
 <li><a href="{{ root }}/gallery">Gallery</a></li>
-<li><a href="{{ root }}/blog">Blog</a></li>
+<li class="dropdown">
+  <a class="drop-trigger" href="{{ root }}/blog">Blog</a>
+  <div class="drop-wrapper">
+    <ul class="drop-menu">
+      <li>Recent posts</li>
+      {% for post in site.posts limit: 5 %}
+        <li><a href="{{ root }}{{ post.url }}"> {{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</li>
 <li><a href="{{ root }}{{ site.posts.first.url }}">Newest Post</a></li>

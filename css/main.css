@@ -21,7 +21,7 @@ a {
 body {
   display: flex;
   flex-direction: column;
-  font-family: Helvetica, sans-serif;
+  font-family: "Roboto", Helvetica, sans-serif;
   min-height: 100vh;
 }
 
@@ -80,11 +80,11 @@ h4 {
   border-left: 1px solid rgba(255, 255, 255, 0.3);
   padding-left: 1em;
 }
-.header-nav a {
+.header-nav a, .drop-trigger {
   color: #fff;
 }
-.nav-links a {
-  font-size: 0.8rem;
+.nav-links a, .drop-trigger  {
+  font-size: 0.9rem;
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
@@ -99,6 +99,101 @@ h4 {
 .header-nav > li:first-child a:hover {
   color: #fff;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.drop-trigger {
+  display: inline-block;
+  padding-right: 1.5em;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+}
+
+.drop-trigger::after {
+  border: .3em solid;
+  border-color: #fff transparent transparent;
+  content: "";
+}
+
+.drop-trigger:hover::after {
+  border-color: #ed6e2f transparent transparent;
+}
+
+.drop-wrapper {
+  padding: 1em 0 0;
+  display: none;
+}
+
+.drop-menu {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  list-style: none;
+  border-radius: 2px;
+}
+
+.dropdown:hover .drop-wrapper {
+  display: block;
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+
+.drop-menu {
+  background-color: #fff;
+}
+
+.drop-menu a {
+  color: #333;
+  display: block;
+  font-weight: normal;
+  padding: 0.5em 2em 0.5em 1em;
+  text-align: left;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.drop-menu a:hover {
+  background-color: rgba(0,0,0,0.1);
+  /* color: #333; */
+}
+
+.drop-menu:before {
+  border: 0.6em solid;
+  border-color: transparent transparent #fff;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 1em;
+  top: -0.1em;
+  width: 0;
+}
+
+.drop-menu li ~ li {
+  border-top: 2px dotted rgba(0,0,0,0.1)
+}
+
+.drop-menu li:first-child {
+  color: #999;
+  font-size: 0.7em;
+  line-height: 1.2;
+  padding: 1em 1em 0.25em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+/* HIDE IN THE FOOTER */
+.footer .dropdown:hover .drop-menu,
+.footer .drop-trigger:after {
+  display: none;
+}
+.footer .drop-trigger {
+  padding-right: 0;
+}
+
 
 /* FOOTER STYLES */
 .footer {
@@ -184,7 +279,6 @@ h4 {
 }
 
 .hero-content .social-link {
-  padding-top: .95em;
   background-color: rgba(255, 255, 255, 0.8);
   color: #557c83;
 }
@@ -286,20 +380,17 @@ h2 ~ p {
 
 body a.social-link {
   background: rgba(150, 150, 150, 0.5);
-  border-radius: 99px;
+  border-radius: 50%;
   box-sizing: border-box;
   color: #fff;
-  display: inline-block;
-  font-family: helvetica, arial, sans-serif;
   font-size: 1rem;
   font-weight: bold;
   height: 2.5em;
-  line-height: 1;
-  padding-top: 0.85em;
-  text-align: center;
   text-decoration: none;
-  vertical-align: middle;
   width: 2.5em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-link:hover, .social-link:active {
@@ -330,17 +421,18 @@ body a.social-link {
   margin: 6rem 0 0;
   padding: 0 3%;
   width: 33%;
+  text-align: center;
 }
 
 .bio-copy {
   font-size: 0.75em;
+  text-align: left;
 }
 
 .bio-box h3 {
   font-size: 1.5em;
   color: #fff;
   margin: -55px 0 1em;
-  text-align: center;
   text-transform: uppercase;
 }
 
@@ -349,7 +441,6 @@ body a.social-link {
 }
 
 .bio-box .social-link {
-  display: block;
   margin: 3em auto 1em;
 }
 
@@ -620,7 +711,7 @@ body a.social-link {
   }
 
   .nav-links a {
-    font-size: 3.25vw;
+    font-size: min(3.25vw, 16px);
   }
 
   .header-logo {
