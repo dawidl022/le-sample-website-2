@@ -81,6 +81,7 @@ h4 {
   padding-left: 1em;
 }
 .header-nav a, .drop-trigger {
+  cursor: pointer;
   color: #fff;
 }
 .nav-links a, .drop-trigger  {
@@ -89,7 +90,7 @@ h4 {
   text-decoration: none;
   text-transform: uppercase;
 }
-.nav-links a:hover, .nav-links a:active {
+.nav-links a:hover, .nav-links a:active, .drop-trigger:hover {
   color: #ed6e2f;
 }
 
@@ -100,99 +101,6 @@ h4 {
   color: #fff;
 }
 
-.dropdown {
-  position: relative;
-}
-
-.drop-trigger {
-  display: inline-block;
-  padding-right: 1.5em;
-  position: relative;
-  display: flex;
-  align-items: baseline;
-  gap: .6em;
-}
-
-.drop-trigger::after {
-  border: .3em solid;
-  border-color: #fff transparent transparent;
-  content: "";
-}
-
-.drop-trigger:hover::after {
-  border-color: #ed6e2f transparent transparent;
-}
-
-.drop-wrapper {
-  padding: 1em 0 0;
-  display: none;
-}
-
-.drop-menu {
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-  list-style: none;
-  border-radius: 2px;
-}
-
-.dropdown:hover .drop-wrapper {
-  display: block;
-  position: absolute;
-  right: 0;
-  z-index: 9;
-}
-
-.drop-menu {
-  background-color: #fff;
-}
-
-.drop-menu a {
-  color: #333;
-  display: block;
-  font-weight: normal;
-  padding: 0.5em 2em 0.5em 1em;
-  text-align: left;
-  text-transform: none;
-  white-space: nowrap;
-}
-
-.drop-menu a:hover {
-  background-color: rgba(0,0,0,0.1);
-  /* color: #333; */
-}
-
-.drop-menu:before {
-  border: 0.6em solid;
-  border-color: transparent transparent #fff;
-  content: "";
-  height: 0;
-  position: absolute;
-  right: 1em;
-  top: -0.1em;
-  width: 0;
-}
-
-.drop-menu li ~ li {
-  border-top: 2px dotted rgba(0,0,0,0.1)
-}
-
-.drop-menu li:first-child {
-  color: #999;
-  font-size: 0.7em;
-  line-height: 1.2;
-  padding: 1em 1em 0.25em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-
-/* HIDE IN THE FOOTER */
-.footer .dropdown:hover .drop-menu,
-.footer .drop-trigger:after {
-  display: none;
-}
-.footer .drop-trigger {
-  padding-right: 0;
-}
 
 
 /* FOOTER STYLES */
@@ -221,6 +129,128 @@ h4 {
 }
 .footer-socials {
   margin-top: 2em;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+  position: relative;
+}
+
+.drop-trigger {
+  display: inline-block;
+  padding-right: 1.5em;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: .6em;
+}
+
+.drop-trigger::after {
+  border: .3em solid;
+  border-color: #fff transparent transparent;
+  content: "";
+}
+
+.drop-trigger:hover::after {
+  border-color: #ed6e2f transparent transparent;
+}
+
+.drop-wrapper {
+  padding: 1em 0 1rem;
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 9;
+}
+
+.drop-menu {
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+  list-style: none;
+  border-radius: 2px;
+}
+
+.dropdown:hover .drop-wrapper {
+  display: block;
+}
+
+.drop-menu {
+  background-color: #fff;
+}
+
+.drop-menu a {
+  color: #333;
+  display: block;
+  font-weight: normal;
+  padding: 0.5em 2em 0.5em 1em;
+  text-align: left;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.drop-menu a:hover {
+  background-color: rgba(0,0,0,0.1);
+  /* color: #333; */
+}
+
+.drop-menu::before, .drop-menu::after {
+  border: 0.6em solid;
+  border-color: transparent transparent #fff;
+  content: "";
+  height: 0;
+  position: absolute;
+  right: 1em;
+  width: 0;
+}
+
+.drop-menu::before {
+  top: -0.1em;
+}
+
+.drop-menu::after {
+  transform: rotate(180deg);
+}
+
+.drop-menu li ~ li {
+  border-top: 2px dotted rgba(0,0,0,0.1)
+}
+
+.drop-menu li:first-child {
+  color: #999;
+  font-size: 0.7em;
+  line-height: 1.2;
+  padding: 1em 1em 0.25em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+/* HIDE IN THE FOOTER */
+/* .footer .dropdown:hover .drop-menu,
+.footer .drop-trigger:after {
+  display: none;
+}
+.footer .drop-trigger {
+  padding-right: 0;
+} */
+
+/* FOOTER ALTERATIONS TO DROPDOWN */
+.footer .drop-menu li {
+  display: block;
+  margin: 0;
+  /* THIS RESET SHOWS WHY YOU SHOULD BE CAREFUL WITH TAG SELECTORS!
+  Use classes instead! */
+}
+
+.footer .drop-wrapper {
+  bottom: 1rem;
+}
+
+.footer .drop-menu::before {
+  display: none;
+}
+
+.header .drop-menu::after {
+  display: none;
 }
 
 /* HERO STYLES */
