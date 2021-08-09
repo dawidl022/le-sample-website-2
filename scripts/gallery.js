@@ -6,8 +6,14 @@ function activateGallery() {
   const imageDescription = document.querySelector(".gallery-info .description");
 
   thumbnails.forEach(function(thumbnail) {
+    // preload the image
+    const imgSrc = thumbnail.dataset.largeVersion
+    const preloadLarge = new Image();
+    preloadLarge.src = imgSrc;
+
     thumbnail.addEventListener("click", function() {
-      mainImage.src = thumbnail.dataset.largeVersion;
+
+      mainImage.src = imgSrc;
       mainImage.alt = thumbnail.alt;
       imageTitle.textContent = thumbnail.dataset.title;
       imageDescription.textContent = thumbnail.dataset.description;
